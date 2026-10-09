@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1a6b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Guía de tubos">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="img/icono-192.png">
+<link rel="apple-touch-icon" href="img/icono-192.png">
+<link rel="preload" as="image" href="img/logo_imss.png">
+<title>HGR No. 36 · Laboratorio Clínico-URGENCIAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="intro">
+
+<!-- Pantalla de inicio: el logo brilla a pantalla completa y luego se reduce a su lugar en la barra -->
+<div id="splash" aria-hidden="true">
+  <div class="sp-logo" id="spLogo"><img src="img/logo_imss.png" alt=""><span class="brillo"></span></div>
+</div>
+
+<header class="top">
+  <button type="button" class="brand" id="inicioBtn" aria-label="Ir al inicio">
+    <img class="logo" src="img/logo_imss.png" alt="IMSS">
+    <span>
+      <strong class="t">Hospital General Regional No. 36</strong>
+      <span class="s">Laboratorio Clínico-URGENCIAS</span>
+    </span>
+  </button>
+  <nav id="menu" aria-label="Secciones">
+    <button type="button" class="pill" data-tab="analito">ANALITO/PRUEBA</button>
+    <button type="button" class="pill" data-tab="guia">GUÍA DE TUBOS</button>
+    <button type="button" class="pill" data-tab="simulador">SIMULADOR NÚMERO DE TUBOS</button>
+    <button type="button" class="pill" data-tab="solicitud">SOLICITUD Y RECEPCIÓN</button>
+  </nav>
+</header>
+
+<main class="stage">
+
+  <!-- INICIO: solo la imagen translúcida -->
+  <section id="inicio" class="vista">
+    <img class="central" src="img/central.jpg" alt="Hospital General Regional No. 36 Carmen Serdán Alatriste" onerror="this.style.display='none'">
+    <p id="aviso" class="aviso" hidden></p>
+  </section>
+
+  <!-- ANALITO / PRUEBA -->
+  <section id="analito" class="vista" hidden>
+    <div class="cont">
+      <h2 class="titulo">ANALITO/PRUEBA</h2>
+      <p class="sub">Busca un analito para ver en qué tubo se toma y cuánta muestra necesita.</p>
+      <div class="buscador">
+        <input type="search" id="qA" aria-label="Buscar analito" placeholder="Buscar analito (ej: troponina, glucosa, TP)…" autocomplete="off">
+        <ul class="sug" id="sugA" role="listbox" hidden></ul>
+      </div>
+      <div class="par" id="parA"></div>
+    </div>
+  </section>
+
+  <!-- GUÍA DE TUBOS -->
+  <section id="guia" class="vista" hidden>
+    <div class="cont">
+      <h2 class="titulo">GUÍA DE TUBOS</h2>
+      <p class="sub">Selecciona un tubo para ver los analitos que se toman en él.</p>
+      <div class="guia">
+        <div class="lista" id="listaG"></div>
+        <div id="detG"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULADOR -->
+  <section id="simulador" class="vista" hidden>
+    <div class="cont">
+      <h2 class="titulo">SIMULADOR NÚMERO DE TUBOS</h2>
+      <p class="sub">Agrega los analitos solicitados y calcula cuántos tubos hacen falta.</p>
+      <div class="buscador">
+        <input type="search" id="qS" aria-label="Agregar analito" placeholder="Agregar analito (ej: BH, glucosa, troponina)…" autocomplete="off">
+        <ul class="sug" id="sugS" role="listbox" hidden></ul>
+      </div>
+      <div class="par" id="parS"></div>
+    </div>
+  </section>
+
+  <!-- SOLICITUD Y RECEPCIÓN -->
+  <section id="solicitud" class="vista" hidden>
+    <div class="cont">
+      <h2 class="titulo">SOLICITUD Y RECEPCIÓN</h2>
+      <p class="sub">Criterios de aceptación y rechazo de solicitudes de laboratorio y de muestras, con ejemplos y fuentes.</p>
+      <div id="solRoot"></div>
+    </div>
+  </section>
+
+  <p class="pie">Volúmenes, colores y aditivos son de referencia y varían según equipo y fabricante: confirma con el manual del laboratorio de tu unidad.</p>
+</main>
+
+<script src="datos/indice.js"></script>
+<script src="datos/solicitud.js"></script>
+<script src="js/solicitud.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
